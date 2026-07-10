@@ -22,7 +22,7 @@ export default function Hero() {
   const [ref, inView] = useInView();
 
   return (
-    <section id="hero" style={{ position: 'relative', paddingTop: '160px', paddingBottom: 'var(--space-24)', backgroundColor: '#F8FAFC', overflow: 'hidden' }}>
+    <section id="hero" style={{ position: 'relative', paddingTop: '180px', paddingBottom: 'var(--space-30)', backgroundColor: '#F8FAFC', overflow: 'hidden' }}>
 
       {/* --- Background Math Elements --- */}
       <div style={{ position: 'absolute', top: '15%', right: '5%', opacity: 0.15, transform: 'rotate(5deg)', fontSize: '1.25rem', color: 'var(--color-gray-600)', zIndex: 0, pointerEvents: 'none' }}>
@@ -73,7 +73,7 @@ export default function Hero() {
       </div>
       {/* ------------------------------- */}
 
-      <div className="container" ref={ref} style={{ position: 'relative', zIndex: 10 }}>
+      <div className="container " ref={ref} style={{ position: 'relative', zIndex: 10 }}>
         {/* Top 2-Column Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: 'var(--space-12)', alignItems: 'center' }}>
 

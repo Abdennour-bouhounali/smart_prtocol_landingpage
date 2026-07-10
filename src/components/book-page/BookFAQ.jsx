@@ -13,7 +13,7 @@ export default function BookFAQ() {
   const [openIdx, setOpenIdx] = useState(0);
 
   return (
-    <section style={{ padding: 'var(--space-32) 0', backgroundColor: 'var(--color-white)' }}>
+    <section style={{ padding: 'var(--space-30) 0', backgroundColor: 'var(--color-white)' }}>
       <div className="container" style={{ maxWidth: 850 }}>
         <div style={{ textAlign: 'center', marginBottom: 'var(--space-16)' }}>
           <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 800, marginBottom: 'var(--space-4)', letterSpacing: '-0.02em', color: 'var(--color-black)' }}>الأسئلة الشائعة</h2>

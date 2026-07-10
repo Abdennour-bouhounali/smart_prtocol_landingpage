@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const categories = ['الكل', 'الأغلفة', 'صفحات العينة', 'الفهرس'];
+const categories = ['الكل', 'الأغلفة', 'المنهجية', 'الترجمة', 'التمارين'];
 
 const images = [
   { src: '/images/front-cover.png', alt: 'الغلاف الأمامي', category: 'الأغلفة' },
   { src: '/images/back-cover.png', alt: 'الغلاف الخلفي', category: 'الأغلفة' },
   { src: '/images/flyer.jpg', alt: 'المنشور التعريفي', category: 'الأغلفة' },
-  { src: '/images/sample-1.jpg', alt: 'منهجية الحل', category: 'صفحات العينة', placeholder: true },
-  { src: '/images/sample-2.jpg', alt: 'قاموس الترجمة', category: 'صفحات العينة', placeholder: true },
-  { src: '/images/sample-3.jpg', alt: 'تمرين محلول', category: 'صفحات العينة', placeholder: true },
-  { src: '/images/toc.jpg', alt: 'الفهرس', category: 'الفهرس', placeholder: true },
+  { src: '/images/prtocole.jpg', alt: 'خطوات البروتوكول', category: 'المنهجية' },
+  { src: '/images/solving _techniques.jpg', alt: 'تقنيات الحل', category: 'المنهجية' },
+  { src: '/images/tranlation_section.jpg', alt: 'قاموس الترجمة', category: 'الترجمة' },
+  { src: '/images/bac_2016_exercice.jpg', alt: 'تمرين بكالوريا محلول', category: 'التمارين' },
+  { src: '/images/exercice_practice_protocol.jpg', alt: 'تطبيق المنهجية', category: 'التمارين' },
+  { src: '/images/exercies_for_problem_solving.jpg', alt: 'تمارين التدريب', category: 'التمارين' },
+  { src: '/images/exercies_for_problem_solving_2.jpg', alt: 'تمارين التدريب (2)', category: 'التمارين' },
 ];
 
 export default function PreviewGallery() {
@@ -20,14 +23,14 @@ export default function PreviewGallery() {
   const filtered = images.filter(img => activeTab === 'الكل' || img.category === activeTab);
 
   return (
-    <section id="preview" style={{ padding: 'var(--space-32) 0', backgroundColor: 'var(--color-white)' }}>
+    <section id="preview" style={{ padding: 'var(--space-30) 0', backgroundColor: 'var(--color-white)' }}>
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: 'var(--space-16)' }}>
+        <div style={{ textAlign: 'center', marginBottom: 'var(--space-16)', marginTop: 'var(--space-16)' }}>
           <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 800, marginBottom: 'var(--space-4)', letterSpacing: '-0.02em', color: 'var(--color-black)' }}>تصفح محتويات الكتاب</h2>
           <p style={{ fontSize: '1.25rem', color: 'var(--color-gray-500)', maxWidth: 650, marginInline: 'auto', lineHeight: 1.6 }}>
             ألق نظرة حصرية على جودة المحتوى والتصميم الداخلي للكتاب وتأكد من أنك تقتني الأفضل.
           </p>
-          
+
           <div style={{ display: 'inline-flex', gap: '6px', backgroundColor: 'var(--color-gray-100)', padding: '8px', borderRadius: '16px', marginTop: 'var(--space-8)', flexWrap: 'wrap', justifyContent: 'center' }}>
             {categories.map(cat => (
               <button

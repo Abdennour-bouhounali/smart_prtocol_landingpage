@@ -11,9 +11,12 @@ import BookPage from './pages/BookPage.jsx';
 import FAQPage from './pages/FAQPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 
+import ScrollToTop from './components/ScrollToTop.jsx';
+
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

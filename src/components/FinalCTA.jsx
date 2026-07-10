@@ -1,72 +1,69 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { CheckCircle, BookOpen, Brain, TrendingUp } from 'lucide-react';
 
 export default function FinalCTA() {
-  return (
-    <section
-      style={{ backgroundColor: 'var(--color-black)', padding: 'var(--space-32) 0', position: 'relative', overflow: 'hidden' }}
-    >
-      {/* Background decoration */}
-      <svg aria-hidden="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0.04, pointerEvents: 'none' }}
-        viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid slice" fill="none">
-        {Array.from({length:10}).map((_,i) => <line key={`h${i}`} x1="0" y1={i*30} x2="1200" y2={i*30} stroke="white" strokeWidth="0.5"/>)}
-        {Array.from({length:40}).map((_,i) => <line key={`v${i}`} x1={i*30} y1="0" x2={i*30} y2="300" stroke="white" strokeWidth="0.5"/>)}
-      </svg>
-      {/* Giant S watermark */}
-      <div aria-hidden="true" style={{
-        position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
-        fontSize: 'min(70vw, 500px)', fontWeight: 900, fontFamily: 'var(--font-mono)',
-        color: 'white', opacity: 0.03, lineHeight: 1, pointerEvents: 'none', userSelect: 'none',
-      }}>S</div>
+  const { scrollYProgress } = useScroll();
+  const yParallax = useTransform(scrollYProgress, [0.8, 1], [100, -100]);
 
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          style={{ textAlign: 'center', maxWidth: 680, margin: '0 auto' }}
+  return (
+    <section style={{ backgroundColor: 'var(--color-black)', padding: 'clamp(80px, 15vw, 160px) 0', position: 'relative', overflow: 'hidden', color: 'white' }}>
+      
+      {/* Cinematic Background */}
+      <div style={{ position: 'absolute', inset: 0, opacity: 0.15, pointerEvents: 'none', backgroundImage: 'radial-gradient(circle at center, var(--color-accent) 0%, transparent 70%)', filter: 'blur(80px)' }} />
+      <div style={{ position: 'absolute', inset: 0, opacity: 0.03, backgroundImage: 'linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
+      
+      <motion.div 
+        style={{ y: yParallax, position: 'absolute', top: '50%', left: '50%', x: '-50%', fontSize: 'min(70vw, 400px)', fontWeight: 900, fontFamily: 'var(--font-mono)', lineHeight: 1, color: 'rgba(255,255,255,0.02)', pointerEvents: 'none', zIndex: 0 }}
+      >
+        SMART
+      </motion.div>
+
+      <div className="container" style={{ position: 'relative', zIndex: 10, textAlign: 'center', maxWidth: 900 }}>
+        
+        {/* Trust Strip */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '24px', marginBottom: 'var(--space-16)' }}
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-accent)', marginBottom: 'var(--space-4)' }}
-          >
-            ابدأ اليوم
-          </motion.p>
-          <h2 style={{
-            fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 700,
-            color: 'var(--color-white)', marginBottom: 'var(--space-6)',
-            letterSpacing: '-0.03em', lineHeight: 1.2,
-          }}>
-            مهما كان مستواك اليوم...
-          </h2>
-          <p style={{
-            fontSize: '1.1875rem', color: 'rgba(255,255,255,0.6)',
-            lineHeight: 1.85, marginBottom: 'var(--space-12)', fontStyle: 'italic',
-          }}>
-            أؤكد لك أن التطور في الرياضيات ممكن جداً بالممارسة الواعية والتدريب المنهجي.
-            مهارة حل المشكلات ليست موهبة فطرية، بل عضلة تقوى بالتدريب والانضباط.
-          </p>
-          <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <motion.div whileHover={{ y: -3 }} transition={{ duration: 0.2 }}>
-              <Link to="/protocol" className="btn btn--primary btn--large">
-                ابدأ بتطبيق بروتوكول SMART
-              </Link>
-            </motion.div>
-            <motion.div whileHover={{ y: -3 }} transition={{ duration: 0.2 }}>
-              <Link to="/book" className="btn btn--large" style={{
-                backgroundColor: 'transparent', color: 'white',
-                border: '1.5px solid rgba(255,255,255,0.25)',
-              }}>
-                تصفح الكتاب
-              </Link>
-            </motion.div>
-          </div>
+          {[
+            { icon: CheckCircle, label: 'منهجية عملية' },
+            { icon: Brain, label: 'تفكير رياضي سليم' },
+            { icon: BookOpen, label: 'أمثلة تطبيقية' },
+            { icon: TrendingUp, label: 'مناسبة للبكالوريا' }
+          ].map((item, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--color-gray-400)', fontSize: '1rem', fontWeight: 600 }}>
+              <item.icon size={20} color="var(--color-accent)" />
+              {item.label}
+            </div>
+          ))}
         </motion.div>
+
+        {/* Message */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, delay: 0.1 }}
+          style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, color: 'var(--color-gray-400)', lineHeight: 1.6, marginBottom: 'var(--space-6)' }}
+        >
+          الفرق بين الطالب العادي والمتفوق...
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, delay: 0.2 }}
+          style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 900, color: 'white', lineHeight: 1.3, marginBottom: 'var(--space-16)' }}
+        >
+          ليس عدد التمارين التي يحلها، بل <span style={{ color: 'var(--color-accent)' }}>الطريقة التي يفكر بها</span>.
+        </motion.h2>
+
+        {/* Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, delay: 0.3 }}
+          style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 'var(--space-4)' }}
+        >
+          <Link to="/protocol" className="btn btn--primary btn--large" style={{ padding: '24px 56px', fontSize: '1.25rem', borderRadius: '99px', fontWeight: 800, boxShadow: '0 10px 40px -10px var(--color-accent)' }}>
+            ابدأ رحلتك مع SMART
+          </Link>
+        </motion.div>
+        
       </div>
     </section>
   );

@@ -10,7 +10,7 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section style={{ padding: 'var(--space-12) 0', backgroundColor: 'var(--color-gray-50)', borderBottom: '1px solid var(--color-gray-100)' }}>
+    <section style={{ padding: 'var(--space-30) 0', backgroundColor: 'var(--color-gray-50)', borderBottom: '1px solid var(--color-gray-100)' }}>
       <div className="container">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 'var(--space-6)' }}>
           {stats.map((stat, idx) => (
@@ -21,7 +21,7 @@ export default function StatsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               style={{
-                padding: 'var(--space-8) var(--space-6)',
+                padding: 'var(--space-10) var(--space-8)',
                 backgroundColor: 'var(--color-white)',
                 borderRadius: '20px',
                 border: '1px solid var(--color-gray-200)',

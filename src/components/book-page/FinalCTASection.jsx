@@ -5,7 +5,7 @@ import { ShoppingCart, ArrowLeft } from 'lucide-react';
 
 export default function FinalCTASection() {
   return (
-    <section style={{ padding: 'var(--space-32) 0 var(--space-40)', backgroundColor: 'var(--color-black)', color: 'white', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ padding: 'var(--space-30) 0', backgroundColor: 'var(--color-black)', color: 'white', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(14,165,233,0.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
       
       <div className="container" style={{ position: 'relative', zIndex: 1, maxWidth: 900 }}>

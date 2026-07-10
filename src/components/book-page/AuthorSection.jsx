@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function AuthorSection() {
   return (
-    <section style={{ padding: 'var(--space-32) 0', backgroundColor: 'var(--color-white)' }}>
+    <section style={{ padding: 'var(--space-30) 0', backgroundColor: 'var(--color-white)' }}>
       <div className="container">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--space-16)', alignItems: 'center', maxWidth: 1100, marginInline: 'auto' }}>
           
