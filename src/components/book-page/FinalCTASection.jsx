@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, ArrowLeft } from 'lucide-react';
+import { ShoppingCart, ArrowLeft, ArrowRight } from 'lucide-react';
 
 export default function FinalCTASection() {
   return (
@@ -34,11 +34,16 @@ export default function FinalCTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          style={{ display: 'flex', gap: 'var(--space-6)', flexWrap: 'wrap', justifyContent: 'center' }}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--space-6)' }}
         >
-          <Link to="/contact" className="btn btn--primary btn--large" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '20px 48px', fontSize: '1.25rem', borderRadius: '16px', fontWeight: 800 }}>
-            اطلب نسختك الآن <ShoppingCart size={24} />
+          <Link to="/purchase" className="btn btn--primary btn--large" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '20px 48px', fontSize: '1.25rem', borderRadius: '16px', fontWeight: 800 }}>
+            احصل على نسختك <ArrowRight size={24} />
           </Link>
+          
+          <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem' }}>
+            الدفع عند الاستلام - متوفر التوصيل لجميع الولايات
+          </div>
+          
           <Link to="/protocol" className="btn btn--large" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '20px 48px', fontSize: '1.25rem', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.2)', backgroundColor: 'transparent', color: 'white', fontWeight: 700, transition: 'all 0.3s ease' }} onMouseOver={(e)=> e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'} onMouseOut={(e)=> e.currentTarget.style.backgroundColor = 'transparent'}>
             تصفح المنهجية <ArrowLeft size={24} />
           </Link>

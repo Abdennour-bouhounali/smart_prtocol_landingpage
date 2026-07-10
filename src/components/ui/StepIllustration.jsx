@@ -19,9 +19,8 @@ export default function StepIllustration({ spec, animate = true }) {
   const prefersReduced = useReducedMotion();
   const shouldAnimate = animate && !prefersReduced;
 
-  // Vite dynamic import: all files in the illustrations folder are bundled.
-  // Using a template literal so Vite can statically analyse the glob at build time.
-  const src = new URL(`../assets/illustrations/${spec.file}`, import.meta.url).href;
+  // The images are stored in the public/images/steps/ folder.
+  const src = `/images/steps/${spec.file}`;
 
   return (
     <div
@@ -29,7 +28,7 @@ export default function StepIllustration({ spec, animate = true }) {
       aria-label={spec.alt}
       style={{
         width: '100%',
-        maxWidth: 420,
+        maxWidth: 550,
         aspectRatio: '4 / 3.4',
         position: 'relative',
       }}

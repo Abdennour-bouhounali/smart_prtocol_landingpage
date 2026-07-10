@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Target, Award, ShoppingCart, ArrowLeft } from 'lucide-react';
+import { Target, Award, ShoppingCart, ArrowLeft, ArrowRight, CheckCircle } from 'lucide-react';
 
 export default function HeroSection() {
   return (
@@ -76,12 +76,21 @@ export default function HeroSection() {
             </p>
 
             <div style={{ display: 'flex', gap: 'var(--space-4)', flexWrap: 'wrap', marginBottom: 'var(--space-12)' }}>
-              <Link to="/contact" className="btn btn--primary btn--large" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '18px 36px', fontSize: '1.125rem', borderRadius: '14px', fontWeight: 700, boxShadow: '0 10px 25px -5px rgba(0,102,204,0.3)' }}>
-                احصل على نسختك <ShoppingCart size={22} />
+              <Link to="/purchase" className="btn btn--primary btn--large" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '18px 36px', fontSize: '1.125rem', borderRadius: '14px', fontWeight: 700, boxShadow: '0 10px 25px -5px rgba(0,102,204,0.3)' }}>
+                احصل على نسختك
+                <ArrowRight size={20} />
               </Link>
-              <Link to="/protocol" className="btn btn--large" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '18px 36px', fontSize: '1.125rem', borderRadius: '14px', border: '1px solid var(--color-gray-200)', backgroundColor: 'transparent', color: 'var(--color-black)', fontWeight: 700, transition: 'all 0.2s ease' }} onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'var(--color-gray-50)'} onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
-                تصفح المنهجية <ArrowLeft size={22} />
+              
+              <Link to="/demo" className="btn btn--secondary btn--large" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '18px 36px', fontSize: '1.125rem', borderRadius: '14px', fontWeight: 700, backgroundColor: '#fff', color: '#0f172a', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
+                تجربة المنهجية
               </Link>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', color: '#64748b', fontSize: '0.95rem', fontWeight: 500, marginBottom: 'var(--space-8)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <CheckCircle size={16} color="#10b981" />
+                الدفع عند الاستلام
+              </div>
             </div>
 
             <div style={{ display: 'flex', gap: 'var(--space-8)', flexWrap: 'wrap' }}>

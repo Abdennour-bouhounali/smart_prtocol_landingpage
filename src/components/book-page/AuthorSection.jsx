@@ -6,7 +6,7 @@ export default function AuthorSection() {
     <section style={{ padding: 'var(--space-30) 0', backgroundColor: 'var(--color-white)' }}>
       <div className="container">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--space-16)', alignItems: 'center', maxWidth: 1100, marginInline: 'auto' }}>
-          
+
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -14,7 +14,7 @@ export default function AuthorSection() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             style={{ position: 'relative', borderRadius: '32px', overflow: 'hidden', boxShadow: '0 40px 80px rgba(0,0,0,0.1)' }}
           >
-            <div style={{ aspectRatio: '3/4', backgroundColor: 'var(--color-gray-100)', backgroundImage: 'url(/images/logo.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }} />
+            <div style={{ aspectRatio: '3/4', backgroundColor: 'var(--color-gray-100)', backgroundImage: 'url(/images/front-cover.png)', backgroundSize: 'cover', backgroundPosition: 'center' }} />
           </motion.div>
 
           <motion.div

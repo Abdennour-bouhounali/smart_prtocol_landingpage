@@ -2,11 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const stats = [
-  { n: '5', label: 'مراحل SMART' },
-  { n: '5', label: 'تمارين تطبيقية' },
-  { n: '23', label: 'صفحة مركزة' },
-];
+import BookStatistics from './ui/BookStatistics.jsx';
+import statsData from '../data/statistics.json';
 
 export default function BookShowcase() {
   return (
@@ -65,25 +62,12 @@ export default function BookShowcase() {
               دليلك المنهجي الشامل
             </h2>
 
-            {/* Stats */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-4)', marginBottom: 'var(--space-10)' }}>
-              {stats.map(({ n, label }, i) => (
-                <motion.div
-                  key={label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 + 0.2 }}
-                  style={{
-                    backgroundColor: 'white', border: '1px solid var(--color-gray-200)',
-                    borderRadius: 'var(--radius-md)', padding: 'var(--space-5)',
-                    boxShadow: 'var(--shadow-sm)',
-                  }}
-                >
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '2.5rem', fontWeight: 900, lineHeight: 1, color: 'var(--color-black)', marginBottom: 6 }}>{n}</div>
-                  <div style={{ fontSize: '0.8125rem', color: 'var(--color-gray-500)', lineHeight: 1.4 }}>{label}</div>
-                </motion.div>
-              ))}
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: 'var(--space-6)', color: 'var(--color-black)' }}>
+              {statsData.showcase.title}
+            </h3>
+            
+            <div style={{ marginBottom: 'var(--space-10)' }}>
+              <BookStatistics stats={statsData.showcase.stats} columns="repeat(1, 1fr)" theme="light" />
             </div>
 
             {/* Quote */}

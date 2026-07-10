@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { navigation } from '../data/index.js';
 import { useScrollY } from '../hooks/index.js';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, Menu, X } from 'lucide-react';
+import { ShoppingCart, Menu, X, LayoutDashboard } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const scrollY = useScrollY();
   const scrolled = scrollY > 40;
   const location = useLocation();
+  const isAdminLoggedIn = !!localStorage.getItem('adminToken');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -60,7 +61,12 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <Link to="/book" className="btn btn--primary" style={{ padding: '12px 28px', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '8px', marginLeft: 'var(--space-4)' }}>
+            {isAdminLoggedIn && (
+              <Link to="/admin/dashboard" className="btn" style={{ padding: '12px 20px', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '8px', marginLeft: 'var(--space-2)', backgroundColor: '#0f172a', color: 'white', border: 'none', borderRadius: '8px', fontWeight: 700 }}>
+                لوحة التحكم <LayoutDashboard size={18} />
+              </Link>
+            )}
+            <Link to="/purchase" className="btn btn--primary" style={{ padding: '12px 28px', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '8px', marginLeft: 'var(--space-4)' }}>
               الكتاب <ShoppingCart size={18} />
             </Link>
           </div>
@@ -93,7 +99,12 @@ export default function Navbar() {
                 );
               })}
             </div>
-            <div style={{ marginTop: 'auto', paddingBottom: '32px' }}>
+            <div style={{ marginTop: 'auto', paddingBottom: '32px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {isAdminLoggedIn && (
+                <Link to="/admin/dashboard" className="btn" style={{ width: '100%', justifyContent: 'center', padding: '16px', fontSize: '1.125rem', backgroundColor: '#0f172a', color: 'white', border: 'none', borderRadius: '8px', fontWeight: 700 }}>
+                  لوحة التحكم <LayoutDashboard size={20} />
+                </Link>
+              )}
               <Link to="/book" className="btn btn--primary btn--large" style={{ width: '100%', justifyContent: 'center', padding: '16px', fontSize: '1.125rem' }}>
                 احصل على الكتاب <ShoppingCart size={20} />
               </Link>
