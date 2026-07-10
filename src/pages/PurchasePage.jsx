@@ -17,12 +17,14 @@ export default function PurchasePage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+
   const bookPrice = 1300;
   const deliveryCost = formData.wilaya ? (formData.wilaya.includes('Alger') || formData.wilaya.includes('الجزائر') ? 400 : 600) : 0;
   const total = (bookPrice * formData.quantity) + deliveryCost;
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/wilayas')
+    fetch(`${API_URL}/api/wilayas`)
       .then(res => res.json())
       .then(data => setWilayas(data))
       .catch(err => console.error("Failed to load wilayas"));
@@ -46,7 +48,7 @@ export default function PurchasePage() {
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:3001/api/orders', {
+      const response = await fetch(`${API_URL}/api/orders`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

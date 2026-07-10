@@ -43,6 +43,7 @@ export default function AdminDashboard() {
   const [selectedOrder, setSelectedOrder] = useState(null);
 
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
   const token = localStorage.getItem('adminToken');
 
   useEffect(() => {
@@ -60,7 +61,7 @@ export default function AdminDashboard() {
       const headers = { 'Authorization': `Bearer ${token}` };
       
       // Fetch stats regardless for the top cards
-      const statsRes = await fetch('http://localhost:3001/api/admin/statistics', { headers });
+      const statsRes = await fetch(`${API_URL}/api/admin/statistics`, { headers });
       if (statsRes.status === 401) return handleUnauthorized();
       const statsData = await statsRes.json();
       setStats(statsData);
@@ -74,7 +75,7 @@ export default function AdminDashboard() {
           ...(statusFilter && { status: statusFilter })
         });
         
-        const ordersRes = await fetch(`http://localhost:3001/api/admin/orders?${queryParams}`, { headers });
+        const ordersRes = await fetch(`${API_URL}/api/admin/orders?${queryParams}`, { headers });
         if (ordersRes.status === 401) return handleUnauthorized();
         
         const ordersData = await ordersRes.json();
@@ -98,7 +99,7 @@ export default function AdminDashboard() {
     if (!window.confirm(`هل أنت متأكد من تغيير حالة الطلب إلى ${getStatusName(newStatus)}؟`)) return;
     
     try {
-      const res = await fetch(`http://localhost:3001/api/admin/orders/${id}/status`, {
+      const res = await fetch(`${API_URL}/api/admin/orders/${id}/status`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify({ status: newStatus })
@@ -116,7 +117,7 @@ export default function AdminDashboard() {
     if (!window.confirm('هل أنت متأكد من حذف هذا الطلب نهائياً؟ لا يمكن التراجع عن هذه الخطوة.')) return;
     
     try {
-      const res = await fetch(`http://localhost:3001/api/admin/orders/${id}`, {
+      const res = await fetch(`${API_URL}/api/admin/orders/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });

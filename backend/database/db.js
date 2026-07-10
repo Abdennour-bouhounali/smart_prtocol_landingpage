@@ -10,18 +10,23 @@ const pool = new Pool({
 
 async function initDB() {
   try {
-    const client = new Client({
-      connectionString: connectionString.replace(/\/[^/]+$/, '/postgres'),
-    });
-
-    await client.connect();
-
-    const dbName = process.env.DB_NAME || 'smart_store';
-    const res = await client.query(`SELECT datname FROM pg_catalog.pg_database WHERE datname = $1`, [dbName]);
-    if (res.rowCount === 0) {
-      await client.query(`CREATE DATABASE "${dbName}"`);
+    // Only attempt to create database in local dev environments
+    if (!process.env.DATABASE_URL || process.env.NODE_ENV !== 'production') {
+      try {
+        const client = new Client({
+          connectionString: connectionString.replace(/\/[^/]+$/, '/postgres'),
+        });
+        await client.connect();
+        const dbName = process.env.DB_NAME || 'smart_store';
+        const res = await client.query(`SELECT datname FROM pg_catalog.pg_database WHERE datname = $1`, [dbName]);
+        if (res.rowCount === 0) {
+          await client.query(`CREATE DATABASE "${dbName}"`);
+        }
+        await client.end();
+      } catch (err) {
+        console.warn('Skipped database creation (likely connecting to a cloud DB directly).');
+      }
     }
-    await client.end();
 
     const db = await pool.connect();
     
