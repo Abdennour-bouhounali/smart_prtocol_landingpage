@@ -22,7 +22,7 @@
 export const illustrationSpecs = [
   {
     letter: 'S',
-    file: 'step-1.png',
+    file: 'step-1.webp',
     alt: 'طالب يقرأ ورقة امتحان رياضيات بعناية قبل البدء في الحل',
 
     brief: {
@@ -53,7 +53,7 @@ export const illustrationSpecs = [
 
   {
     letter: 'M',
-    file: 'step-2.png',
+    file: 'step-2.webp',
     alt: 'عبارة لفظية عربية تتحول إلى معادلة رياضية عبر سهم ترجمة',
 
     brief: {
@@ -84,7 +84,7 @@ export const illustrationSpecs = [
 
   {
     letter: 'A',
-    file: 'step-3.png',
+    file: 'step-3.webp',
     alt: 'هدف رياضي مع خطوط إحداثيات وسهم يصل إلى البصرة المركزية',
 
     brief: {
@@ -113,7 +113,7 @@ export const illustrationSpecs = [
 
   {
     letter: 'R',
-    file: 'step-4.png',
+    file: 'step-4.webp',
     alt: 'خريطة ذهنية تربط المعطيات الرياضية بالهدف عبر خطوط مفعّلة',
 
     brief: {
@@ -146,7 +146,7 @@ export const illustrationSpecs = [
 
   {
     letter: 'T',
-    file: 'step-5.png',
+    file: 'step-5.webp',
     alt: 'قائمة تحقق رياضية على لوح أبيض مع شارة النجاح الذهبية',
 
     brief: {

@@ -38,8 +38,8 @@ export default function BookExperience() {
             <div style={{ position: 'relative', width: '100%', maxWidth: 400 }}>
               <div style={{ position: 'absolute', inset: -20, background: 'var(--color-accent)', filter: 'blur(60px)', opacity: 0.15, borderRadius: '50%' }} />
               <img 
-                src="/images/book-3d.png" 
-                alt="SMART Protocol Book" 
+                src="/images/book-3d.webp" 
+                alt="الكتاب التفاعلي" 
                 style={{ width: '100%', height: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 30px 40px rgba(0,0,0,0.5))', transform: 'rotate(-5deg) scale(1.05)' }} 
                 onError={(e) => {
                   e.target.style.display = 'none';

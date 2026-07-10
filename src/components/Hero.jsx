@@ -80,8 +80,9 @@ export default function Hero() {
           {/* Right Column (Image) */}
           <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', opacity: inView ? 1 : 0, transition: 'all 800ms ease 200ms' }}>
             <img
-              src="/images/book-3d.png"
-              alt="SMART Protocol Book 3D"
+              src="/images/book-3d.webp"
+              alt="كتاب بروتوكول SMART"
+              fetchPriority="high"
               style={{
                 width: '100%',
                 maxWidth: 1200,

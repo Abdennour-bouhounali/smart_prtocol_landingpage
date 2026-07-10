@@ -38,7 +38,7 @@ export default function HeroSection() {
             <motion.img
               animate={{ y: [0, -12, 0] }}
               transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-              src="/images/book-3d.png"
+              src="/images/book-3d.webp"
               alt="كتاب SMART المنهجي"
               style={{
                 width: '100%',

@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 const categories = ['الكل', 'الأغلفة', 'المنهجية', 'الترجمة', 'التمارين'];
 
 const images = [
-  { src: '/images/front-cover.png', alt: 'الغلاف الأمامي', category: 'الأغلفة' },
-  { src: '/images/back-cover.png', alt: 'الغلاف الخلفي', category: 'الأغلفة' },
+  { src: '/images/front-cover.webp', alt: 'الغلاف الأمامي', category: 'الأغلفة' },
+  { src: '/images/back-cover.webp', alt: 'الغلاف الخلفي', category: 'الأغلفة' },
   { src: '/images/flyer.jpg', alt: 'المنشور التعريفي', category: 'الأغلفة' },
   { src: '/images/prtocole.jpg', alt: 'خطوات البروتوكول', category: 'المنهجية' },
   { src: '/images/solving _techniques.jpg', alt: 'تقنيات الحل', category: 'المنهجية' },

@@ -37,7 +37,7 @@ export default function BookShowcase() {
               style={{ perspective: 1000 }}
             >
               <img
-                src="/images/book-3d.png"
+                src="/images/book-3d.webp"
                 alt="كتاب بروتوكول SMART"
                 style={{
                   width: '100%',

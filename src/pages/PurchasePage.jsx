@@ -70,7 +70,7 @@ export default function PurchasePage() {
   const BookPreviewContent = () => (
     <>
       <div className="book-image-container">
-        <img src="/images/front-cover.png" alt="كتاب SMART" />
+        <img src="/images/front-cover.webp" alt="كتاب SMART" loading="lazy" />
       </div>
       <div style={{ textAlign: 'center' }}>
         <h3 style={{ fontSize: '1.4rem', fontWeight: 900, marginBottom: '8px', color: '#1e293b' }}>كتاب SMART</h3>
