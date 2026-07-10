@@ -1,0 +1,66 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { navigation } from '../data/index.js';
+
+export default function Footer() {
+  return (
+    <footer style={{ backgroundColor: 'var(--color-gray-800)', padding: 'var(--space-16) 0 var(--space-8)' }}>
+      <div className="container">
+        <div style={{
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: 'var(--space-12)', marginBottom: 'var(--space-12)', direction: 'rtl',
+        }}>
+          {/* Brand */}
+          <div>
+            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 900, fontSize: '1.5rem', color: 'white', letterSpacing: '-0.03em', display: 'block', marginBottom: 'var(--space-4)' }}>
+              SMART
+            </span>
+            <p style={{ color: 'var(--color-gray-400)', fontSize: '0.9rem', lineHeight: 1.7, maxWidth: 260 }}>
+              منهجية متكاملة لحل المسائل الرياضية في البكالوريا الجزائرية.
+            </p>
+          </div>
+
+          {/* Nav links */}
+          <div>
+            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-gray-500)', marginBottom: 'var(--space-5)' }}>
+              الصفحات
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+              {navigation.map(item => (
+                <Link key={item.href} to={item.href}
+                  style={{ color: 'var(--color-gray-400)', fontSize: '0.9375rem', transition: 'color 0.2s', textDecoration: 'none' }}
+                  onMouseEnter={e => e.target.style.color = 'white'}
+                  onMouseLeave={e => e.target.style.color = 'var(--color-gray-400)'}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-gray-500)', marginBottom: 'var(--space-5)' }}>
+              تواصل
+            </p>
+            <Link to="/contact" className="btn btn--secondary"
+              style={{ color: 'var(--color-gray-400)', borderColor: 'rgba(255,255,255,0.12)', fontSize: '0.875rem' }}
+            >
+              اتصل بنا
+            </Link>
+          </div>
+        </div>
+
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: 'var(--space-6)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 'var(--space-3)' }}>
+          <p style={{ color: 'var(--color-gray-500)', fontSize: '0.875rem' }}>
+            أ. عبد النور · بروتوكول SMART لحل المسائل الرياضية
+          </p>
+          <p style={{ color: 'var(--color-gray-500)', fontSize: '0.875rem', fontFamily: 'var(--font-mono)' }}>
+            © {new Date().getFullYear()}
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
