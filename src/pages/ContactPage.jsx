@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Clock, Send, CheckCircle2, User, Gift, BookOpen, MessageSquare, AlertCircle } from 'lucide-react';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 export default function ContactPage() {
   const [formState, setFormState] = useState('idle'); // idle | loading | success | error
@@ -41,7 +41,7 @@ export default function ContactPage() {
     
     setFormState('loading');
     try {
-      const response = await fetch(`${API_URL}/contacts`, {
+      const response = await fetch(`${API_URL}/api/contacts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
