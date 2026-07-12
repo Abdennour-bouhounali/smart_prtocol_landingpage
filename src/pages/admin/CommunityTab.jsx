@@ -319,7 +319,7 @@ export default function CommunityTab({ token, API_URL }) {
                   {selectedContact.country && <span style={badgeStyle}><MapPin size={14}/> {selectedContact.country}</span>}
                   {selectedContact.book_owner && <span style={{ ...badgeStyle, backgroundColor: '#dcfce7', color: '#166534', border: '1px solid #bbf7d0' }}>يمتلك الكتاب</span>}
                   {selectedContact.wants_free_session && <span style={{ ...badgeStyle, backgroundColor: '#fef3c7', color: '#92400e', border: '1px solid #fde68a' }}><Award size={14}/> طلب توجيه مجاني</span>}
-                  {selectedContact.purchase_reference && <span style={badgeStyle}>الطلبية: {selectedContact.purchase_reference}</span>}
+
                 </div>
 
                 {/* Message */}

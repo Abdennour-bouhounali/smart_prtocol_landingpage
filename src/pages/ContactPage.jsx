@@ -16,7 +16,6 @@ export default function ContactPage() {
     country: '',
     school: '',
     book_owner: 'false',
-    purchase_reference: '',
     wants_free_session: false,
     subject: 'General Question',
     message: '',
@@ -247,12 +246,7 @@ export default function ContactPage() {
                       {formData.book_owner === 'true' && (
                         <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} style={{ overflow: 'hidden' }}>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', paddingTop: '8px' }}>
-                            <div>
-                              <label style={{ display: 'block', marginBottom: '8px', fontWeight: 700, fontSize: '0.95rem', color: 'var(--color-gray-600)' }}>رقم الطلبية (اختياري)</label>
-                              <input type="text" name="purchase_reference" dir="ltr" value={formData.purchase_reference} onChange={handleChange} placeholder="مثال: ORD-123456"
-                                style={{ width: '100%', padding: '14px 16px', backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', fontSize: '1rem', fontFamily: 'inherit', transition: 'all 0.3s' }}
-                              />
-                            </div>
+
                             <label style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', cursor: 'pointer', backgroundColor: '#ecfdf5', padding: '16px', borderRadius: '12px', border: '1px solid #a7f3d0' }}>
                               <input type="checkbox" name="wants_free_session" checked={formData.wants_free_session} onChange={handleChange} style={{ width: 20, height: 20, marginTop: '2px', accentColor: '#10b981' }} />
                               <div>

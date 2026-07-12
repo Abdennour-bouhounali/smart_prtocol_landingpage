@@ -11,8 +11,6 @@ exports.validateContact = [
   body('role').trim().notEmpty().isIn(['Student', 'Teacher', 'Parent', 'Other']).withMessage('Invalid role'),
   body('school').optional({ checkFalsy: true }).trim().isLength({ max: 255 }),
   body('book_owner').optional().isBoolean(),
-  body('purchase_reference').optional({ checkFalsy: true }).trim().isLength({ max: 100 }),
-  body('wants_free_session').optional().isBoolean(),
   body('subject').trim().notEmpty().isIn(['General Question', 'Book Feedback', 'Technical Support', 'Mentoring Session', 'Teacher Collaboration', 'Bulk Purchase', 'Other']).withMessage('Invalid subject'),
   body('message').trim().notEmpty().withMessage('Message is required').isLength({ max: 5000 }).withMessage('Message too long'),
   body('consent').custom((value) => {
@@ -38,7 +36,6 @@ exports.submitContact = async (req, res) => {
       role: req.body.role,
       school: xss(req.body.school),
       book_owner: req.body.book_owner === true || req.body.book_owner === 'true',
-      purchase_reference: xss(req.body.purchase_reference),
       wants_free_session: req.body.wants_free_session === true || req.body.wants_free_session === 'true',
       subject: req.body.subject,
       message: xss(req.body.message),

@@ -1,14 +1,14 @@
 const pool = require('../database/db');
 
 class Contact {
-  static async create({ full_name, email, phone, country, role, school, book_owner, purchase_reference, wants_free_session, subject, message }) {
+  static async create({ full_name, email, phone, country, role, school, book_owner, wants_free_session, subject, message }) {
     const query = `
-      INSERT INTO contacts (full_name, email, phone, country, role, school, book_owner, purchase_reference, wants_free_session, subject, message)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *
+      INSERT INTO contacts (full_name, email, phone, country, role, school, book_owner, wants_free_session, subject, message)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *
     `;
     const { rows } = await pool.query(query, [
       full_name, email, phone || null, country || null, role, school || null, 
-      book_owner || false, purchase_reference || null, wants_free_session || false, 
+      book_owner || false, wants_free_session || false, 
       subject, message
     ]);
     return rows[0];
@@ -57,7 +57,7 @@ class Contact {
       params.push(wants_free_session === 'true');
     }
     if (search) {
-      query += ` AND (c.full_name ILIKE $${paramIndex} OR c.email ILIKE $${paramIndex} OR c.phone ILIKE $${paramIndex} OR c.purchase_reference ILIKE $${paramIndex})`;
+      query += ` AND (c.full_name ILIKE $${paramIndex} OR c.email ILIKE $${paramIndex} OR c.phone ILIKE $${paramIndex})`;
       params.push(`%${search}%`);
       paramIndex++;
     }

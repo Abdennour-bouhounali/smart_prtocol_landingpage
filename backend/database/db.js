@@ -85,7 +85,6 @@ async function initDB() {
         role VARCHAR(50) NOT NULL,
         school VARCHAR(255),
         book_owner BOOLEAN DEFAULT false,
-        purchase_reference VARCHAR(100),
         wants_free_session BOOLEAN DEFAULT false,
         subject VARCHAR(100) NOT NULL,
         message TEXT NOT NULL,
