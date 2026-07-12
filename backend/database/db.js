@@ -73,6 +73,31 @@ async function initDB() {
       )
     `);
 
+    // 3.5. Contacts Table for Community & Mentorship
+    await db.query(`
+      CREATE TABLE IF NOT EXISTS contacts (
+        id SERIAL PRIMARY KEY,
+        uuid UUID DEFAULT gen_random_uuid() UNIQUE,
+        full_name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        phone VARCHAR(50),
+        country VARCHAR(100),
+        role VARCHAR(50) NOT NULL,
+        school VARCHAR(255),
+        book_owner BOOLEAN DEFAULT false,
+        purchase_reference VARCHAR(100),
+        wants_free_session BOOLEAN DEFAULT false,
+        subject VARCHAR(100) NOT NULL,
+        message TEXT NOT NULL,
+        status VARCHAR(50) DEFAULT 'NEW' CHECK (status IN ('NEW', 'IN_PROGRESS', 'REPLIED', 'CLOSED', 'ARCHIVED')),
+        admin_notes TEXT,
+        assigned_to INTEGER REFERENCES admins(id) ON DELETE SET NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        deleted_at TIMESTAMP
+      )
+    `);
+
     // 4. Create Indexes for admin filtering and fast lookups
     await db.query(`CREATE INDEX IF NOT EXISTS idx_orders_status ON orders(status)`);
     await db.query(`CREATE INDEX IF NOT EXISTS idx_orders_created_at ON orders(created_at DESC)`);

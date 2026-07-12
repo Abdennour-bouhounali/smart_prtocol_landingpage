@@ -21,8 +21,10 @@ import {
   Clock,
   User,
   MapPin,
-  Phone
+  Phone,
+  Users
 } from 'lucide-react';
+import CommunityTab from './CommunityTab';
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('orders'); // 'orders' or 'stats'
@@ -555,6 +557,10 @@ export default function AdminDashboard() {
             <BarChart3 size={20} />
             <span>الإحصائيات المالية</span>
           </button>
+          <button className={`nav-item ${activeTab === 'community' ? 'active' : ''}`} onClick={() => { setActiveTab('community'); setIsMobileMenuOpen(false); }}>
+            <Users size={20} />
+            <span>المجتمع (Community)</span>
+          </button>
         </nav>
 
         <div className="sidebar-footer" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -585,7 +591,7 @@ export default function AdminDashboard() {
             <button onClick={() => setIsMobileMenuOpen(true)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--admin-text)' }}>
               <Menu size={28} />
             </button>
-            <h2 style={{ fontSize: '1.2rem', fontWeight: 800 }}>{activeTab === 'orders' ? 'الطلبات' : 'الإحصائيات'}</h2>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: 800 }}>{activeTab === 'orders' ? 'الطلبات' : activeTab === 'community' ? 'المجتمع' : 'الإحصائيات'}</h2>
           </div>
           <div style={{ fontWeight: 700, color: 'var(--admin-text-light)' }}>
             مرحباً، المشرف
@@ -818,6 +824,10 @@ export default function AdminDashboard() {
                     <StatCard title="ملغى" value={stats.cancelled} icon={X} colorClass="color-cancelled" bgColorClass="" />
                   </div>
                 </motion.div>
+              )}
+              
+              {activeTab === 'community' && (
+                <CommunityTab token={token} API_URL={API_URL} />
               )}
             </>
           )}
