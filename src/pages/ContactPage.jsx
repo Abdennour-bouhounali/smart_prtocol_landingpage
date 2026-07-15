@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Clock, Send, CheckCircle2, User, Gift, BookOpen, MessageSquare, AlertCircle } from 'lucide-react';
+import { Mail, Clock, Send, CheckCircle2, User, Gift, BookOpen, MessageSquare, AlertCircle, Facebook, Youtube } from 'lucide-react';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
@@ -137,6 +137,24 @@ export default function ContactPage() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--color-gray-600)', fontWeight: 600 }}>
                   <Clock size={20} color="var(--color-accent)" />
                   الرد خلال 24 - 48 ساعة
+                </div>
+                <div style={{ display: 'flex', gap: '20px', marginTop: '8px' }}>
+                  <a href="https://www.facebook.com/SmartMathProtocol/" target="_blank" rel="noopener noreferrer"
+                     style={{ color: 'var(--color-accent)', transition: 'color 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(59, 130, 246, 0.1)' }}
+                     onMouseEnter={e => { e.currentTarget.style.color = 'white'; e.currentTarget.style.backgroundColor = '#1877F2'; }}
+                     onMouseLeave={e => { e.currentTarget.style.color = 'var(--color-accent)'; e.currentTarget.style.backgroundColor = 'rgba(59, 130, 246, 0.1)'; }}
+                     aria-label="Facebook Page"
+                  >
+                    <Facebook size={20} />
+                  </a>
+                  <a href="https://www.youtube.com/@SmartMathProtocol" target="_blank" rel="noopener noreferrer"
+                     style={{ color: 'var(--color-accent)', transition: 'color 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(59, 130, 246, 0.1)' }}
+                     onMouseEnter={e => { e.currentTarget.style.color = 'white'; e.currentTarget.style.backgroundColor = '#FF0000'; }}
+                     onMouseLeave={e => { e.currentTarget.style.color = 'var(--color-accent)'; e.currentTarget.style.backgroundColor = 'rgba(59, 130, 246, 0.1)'; }}
+                     aria-label="YouTube Channel"
+                  >
+                    <Youtube size={20} />
+                  </a>
                 </div>
               </div>
             </div>

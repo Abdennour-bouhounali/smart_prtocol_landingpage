@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { navigation } from '../data/index.js';
+import { Facebook, Youtube } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -43,13 +44,34 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-gray-500)', marginBottom: 'var(--space-5)' }}>
-              تواصل
+              تواصل معنا
             </p>
-            <Link to="/contact" className="btn btn--secondary"
-              style={{ color: 'var(--color-gray-400)', borderColor: 'rgba(255,255,255,0.12)', fontSize: '0.875rem' }}
-            >
-              اتصل بنا
-            </Link>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+              <Link to="/contact" className="btn btn--secondary"
+                style={{ color: 'var(--color-gray-400)', borderColor: 'rgba(255,255,255,0.12)', fontSize: '0.875rem', width: 'fit-content' }}
+              >
+                اتصل بنا
+              </Link>
+              
+              <div style={{ display: 'flex', gap: '16px', marginTop: '8px' }}>
+                <a href="https://www.facebook.com/SmartMathProtocol/" target="_blank" rel="noopener noreferrer"
+                   style={{ color: 'var(--color-gray-400)', transition: 'color 0.2s' }}
+                   onMouseEnter={e => e.currentTarget.style.color = '#1877F2'}
+                   onMouseLeave={e => e.currentTarget.style.color = 'var(--color-gray-400)'}
+                   aria-label="Facebook Page"
+                >
+                  <Facebook size={24} />
+                </a>
+                <a href="https://www.youtube.com/@SmartMathProtocol" target="_blank" rel="noopener noreferrer"
+                   style={{ color: 'var(--color-gray-400)', transition: 'color 0.2s' }}
+                   onMouseEnter={e => e.currentTarget.style.color = '#FF0000'}
+                   onMouseLeave={e => e.currentTarget.style.color = 'var(--color-gray-400)'}
+                   aria-label="YouTube Channel"
+                >
+                  <Youtube size={24} />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
