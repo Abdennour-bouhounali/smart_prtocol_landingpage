@@ -105,7 +105,7 @@ async function initDB() {
     // 5. Seed Default Product
     await db.query(`
       INSERT INTO products (name, description, price, image)
-      SELECT 'كتاب SMART - منهجية التفكير الرياضي', 'الكتاب الشامل لتعلم بروتوكول SMART وحل تمارين الرياضيات بذكاء', 1300, '/images/book-cover.webp'
+      SELECT 'كتاب SMART - منهجية التفكير الرياضي', 'الكتاب الشامل لتعلم بروتوكول SMART وحل تمارين الرياضيات بذكاء', 1400, '/images/book-cover.webp'
       WHERE NOT EXISTS (SELECT 1 FROM products)
     `);
 

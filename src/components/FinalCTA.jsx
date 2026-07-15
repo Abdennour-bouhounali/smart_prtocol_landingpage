@@ -9,21 +9,21 @@ export default function FinalCTA() {
 
   return (
     <section style={{ backgroundColor: 'var(--color-black)', padding: 'clamp(80px, 15vw, 160px) 0', position: 'relative', overflow: 'hidden', color: 'white' }}>
-      
+
       {/* Cinematic Background */}
       <div style={{ position: 'absolute', inset: 0, opacity: 0.15, pointerEvents: 'none', backgroundImage: 'radial-gradient(circle at center, var(--color-accent) 0%, transparent 70%)', filter: 'blur(80px)' }} />
       <div style={{ position: 'absolute', inset: 0, opacity: 0.03, backgroundImage: 'linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
-      
-      <motion.div 
+
+      <motion.div
         style={{ y: yParallax, position: 'absolute', top: '50%', left: '50%', x: '-50%', fontSize: 'min(70vw, 400px)', fontWeight: 900, fontFamily: 'var(--font-mono)', lineHeight: 1, color: 'rgba(255,255,255,0.02)', pointerEvents: 'none', zIndex: 0 }}
       >
         SMART
       </motion.div>
 
       <div className="container" style={{ position: 'relative', zIndex: 10, textAlign: 'center', maxWidth: 900 }}>
-        
+
         {/* Trust Strip */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '24px', marginBottom: 'var(--space-16)' }}
         >
@@ -59,11 +59,11 @@ export default function FinalCTA() {
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, delay: 0.3 }}
           style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 'var(--space-4)' }}
         >
-          <Link to="/protocol" className="btn btn--primary btn--large" style={{ padding: '24px 56px', fontSize: '1.25rem', borderRadius: '99px', fontWeight: 800, boxShadow: '0 10px 40px -10px var(--color-accent)' }}>
-            ابدأ رحلتك مع SMART
+          <Link to="/book" className="btn btn--primary btn--large" style={{ padding: '24px 56px', fontSize: '1.25rem', borderRadius: '99px', fontWeight: 800, boxShadow: '0 10px 40px -10px var(--color-accent)' }}>
+            احصل على نسختك الآن
           </Link>
         </motion.div>
-        
+
       </div>
     </section>
   );

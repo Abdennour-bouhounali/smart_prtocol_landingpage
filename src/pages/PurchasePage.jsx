@@ -19,7 +19,7 @@ export default function PurchasePage() {
 
   const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
-  const bookPrice = 1300;
+  const bookPrice = 1400;
   const deliveryCost = formData.wilaya ? (formData.wilaya.includes('Alger') || formData.wilaya.includes('الجزائر') ? 400 : 600) : 0;
   const total = (bookPrice * formData.quantity) + deliveryCost;
 
