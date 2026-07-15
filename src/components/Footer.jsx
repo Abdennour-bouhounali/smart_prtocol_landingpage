@@ -13,7 +13,8 @@ export default function Footer() {
         }}>
           {/* Brand */}
           <div>
-            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 900, fontSize: '1.5rem', color: 'white', letterSpacing: '-0.03em', display: 'block', marginBottom: 'var(--space-4)' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 900, fontSize: '1.5rem', color: 'white', letterSpacing: '-0.03em', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: 'var(--space-4)' }}>
+              <img src="/images/logo.webp" alt="SMART Logo" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
               SMART
             </span>
             <p style={{ color: 'var(--color-gray-400)', fontSize: '0.9rem', lineHeight: 1.7, maxWidth: 260 }}>

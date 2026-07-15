@@ -48,7 +48,8 @@ export default function Navbar() {
         }}
       >
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <Link to="/" style={{ fontWeight: 900, fontSize: '1.5rem', letterSpacing: '-0.03em', fontFamily: 'var(--font-mono)', color: 'var(--color-black)', zIndex: 101 }}>
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', fontWeight: 900, fontSize: '1.5rem', letterSpacing: '-0.03em', fontFamily: 'var(--font-mono)', color: 'var(--color-black)', zIndex: 101 }}>
+            <img src="/images/logo.webp" alt="SMART Logo" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
             SMART
           </Link>
 
